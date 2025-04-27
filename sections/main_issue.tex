@@ -2,33 +2,85 @@
 \documentclass[main]{subfiles}
 
 \begin{document}
-\chapter{本論}
-\section{セクション}
-ここに本論を書く \cite{ref:yao2017integrated} \cite{ref:ugarte1992curling} \cite{ref:nomura2022uwb}．
-\Fig{fig:label}と \Eq{eq:label}はに示すように，hogeである．
+\setcounter{chapter}{2} % 章番号を3に設定する
+\setcounter{page}{9} % ページ番号を9に設定する
+\chapter{有限オートマトン}
 
-\subsection{サブセクション}
+本章では\textbf{有限オートマトン}と呼ばれる言語認識機械モデルを紹介し，正規表現で表現できる任意の言語はある有限オートマトンで認識できることを示す．さらに，この逆もいえることも示す．すなわち，有限オートマトンで認識できる任意の言語はある正規表現で表現できることを示し，正規表現で表現できる言語クラスと有限オートマトンで認識できる言語クラスが等しいことを述べる．
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[keepaspectratio, width=\linewidth]{figures/dummy.pdf}
-    \caption{caption}
-    \label{fig:label}
-\end{figure}
+\section{決定性有限オートマトン（DFA）}
 
-\subsubsection{サブサブセクション}
+\begin{framed}
+\noindent 状態集合 $Q$，アルファベット $\Sigma$，遷移関数 $\delta : Q \times \Sigma \rightarrow Q$，初期状態 $s \in Q$，受理（終）状態 $F \subseteq Q$ から定義される $(Q,\Sigma,\delta,s,F)$ を\textbf{決定性有限オートマトン（deterministic finite automaton: DFA）}と呼ぶ．
+\end{framed}
 
-色は匂へど散りぬるを 我が世誰ぞ常ならむ 有為の奥山今日越えて 浅き夢見じ酔ひもせず
+$\Sigma$上の文字列 $x = x_0 x_1 \cdots x_{n-1}$ に対して，$p_0 = s$, $p_{i+1} = \delta(p_i,x_i)$ $(0 \leq i \leq n - 1)$，$p_n \in F$ であるような状態列 $p_0, p_1, \ldots, p_n$ が存在するとき，この DFA は文字列 $x$ を受理するという．DFA が受理するすべての文字列からなる集合（言語）を $L$ とするとき，この DFA は $L$ を\textbf{認識する}という．
 
+\begin{tcolorbox}[
+  enhanced,
+  coltitle=black,
+  attach boxed title to top left={xshift=3mm, yshift=-\tcboxedtitleheight/2},
+  colback=white,
+  title=DFA の例:,
+  boxed title style={size=small,colframe=white,colback=white}
+]
+\small
+\textbf{例1}\\
+$Q = \{q_0, q_1, q_2\}$\\
+$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+\begin{tabular}{c|cc}
+$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+\hline
+$q_0$ & $q_1$ & $q_0$ \\
+$q_1$ & $q_1$ & $q_2$ \\
+$q_2$ & $q_2$ & $q_2$ \\
+\end{tabular}
+\hspace{5mm} $\Leftrightarrow$
+\begin{minipage}{0.45\textwidth}
+  \includegraphics{figures/dfa1.pdf}\\[2mm]
+  \small{正規表現 b*aa*b がつくる言語 \\= \{a と b での順に現れる文字列\} を認識}
+\end{minipage}\\[-20pt]
 
-A quick brown fox jumps over the lazy dog.
+$s = q_0$\\
+$F = \{q_2\}$
 
+\textbf{例2}\\
+$Q = \{q_0, q_1\}$\\
+$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+\begin{tabular}{c|cc}
+$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+\hline
+$q_0$ & $q_0$ & $q_1$ \\
+$q_1$ & $q_1$ & $q_1$ \\
+\end{tabular}
+\hspace{5mm} $\Leftrightarrow$ 
+\begin{minipage}{0.45\textwidth}
+  
+  \includegraphics{figures/dfa2.pdf}\\[2mm]
+  \small{認識される言語は？}
+\end{minipage}\\[-20pt]
 
-\begin{equation}
-    \left( \int_{0}^\infty \frac{\sin x}{\sqrt {x}} dx \right)^{2}
-    = \sum_{k = 0}^\infty \frac{(2k)!}{2^{2k}(k!)^{2}} \frac{1}{2k + 1}
-    = \prod_{k = 1}^\infty \frac{4k^{2}}{4k^{2} - 1} = \frac{\pi}{2}
-    \label{eq:label}
-\end{equation}
+$s = q_0$\\
+$F = \{q_0\}$
+
+\textbf{例3}\\
+$Q = \{q_0, q_1, q_2\}$\\
+$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+\begin{tabular}{c|cc}
+$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+\hline
+$q_0$ & $q_1$ & $q_2$ \\
+$q_1$ & $q_2$ & $q_0$ \\
+$q_2$ & $q_2$ & $q_2$ \\
+\end{tabular}
+\hspace{5mm} $\Leftrightarrow$ 
+\begin{minipage}{0.45\textwidth}
+  \includegraphics{figures/dfa3.pdf}\\[2mm]
+  \small{認識される言語は？}
+\end{minipage}\\[-20pt]
+
+$s = q_0$\\
+$F = \{q_0\}$
+\end{tcolorbox}
 
 \end{document}

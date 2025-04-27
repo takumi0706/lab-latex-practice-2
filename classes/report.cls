@@ -8,13 +8,13 @@
 % 2カラム,A4,フォントサイズ9pt
 \LoadClass[
     paper=a4,
-    fontsize=11pt,
+    fontsize=10pt,
     disablejfam,
     head_space=30mm,
     foot_space=30mm,
     gutter=25mm,
     fore-edge=25mm,
-    linegap=1zw,
+    linegap=0.5zw,
     report]
     {jlreq}
 
@@ -86,6 +86,25 @@
 \addbibresource{references.bib}
 
 \RequirePackage{tikz} % 図を描画するためのパッケージ
+\usetikzlibrary{automata,positioning} % オートマトン用のライブラリを読み込む
+% オートマトンのスタイル設定
+\tikzset{
+    state/.style={
+        circle,
+        draw,
+        minimum size=20pt,
+        inner sep=0pt
+    },
+    accepting/.style={
+        double,
+        double distance=2pt
+    },
+    initial/.style={
+        initial by arrow,
+        initial distance=7pt,
+        initial text={}
+    }
+}
 
 % \DeclareFieldFormat*{journaltitle}{\textit{#1}} % 日本語雑誌名を通常に、英語雑誌名を斜体に
 % \DeclareFieldFormat*{title}{\textit{#1}}
@@ -137,12 +156,12 @@
 
 % sectionのサイズを合わせる
 \RenewBlockHeading{chapter}{0}{lines=6,label_format={第\thechapter 章},font={\bfseries\Huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
-\RenewBlockHeading{section}{1}{font=\huge,after_label_space=1\jlreq@zw}
+\RenewBlockHeading{section}{1}{font=\LARGE,after_label_space=1\jlreq@zw}
 \RenewBlockHeading{subsection}{2}{font=\LARGE,after_label_space=1\jlreq@zw}
 \RenewBlockHeading{subsubsection}{3}{font=\Large,after_label_space=1\jlreq@zw}
 
 % セクション類の空白の設定
-\ModifyHeading{section}{before_space=30pt, after_space=30pt}
+\ModifyHeading{section}{before_space=20pt, after_space=15pt}
 \ModifyHeading{subsection}{before_space=20pt, after_space=20pt}
 \ModifyHeading{subsubsection}{before_space=15pt, after_space=15pt}
 % セクションタイトルが一行以下なら下、２行以上なら上
