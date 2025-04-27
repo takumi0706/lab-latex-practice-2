@@ -39,6 +39,7 @@
 \RequirePackage{subfiles} % 大規模な文章を分割して記述して、統合するためのパッケージ
 \RequirePackage{indentfirst} % 最初の段落でインデントするためのパッケージ
 \RequirePackage{framed} % 囲み付き文章を出すためのパッケージ
+\RequirePackage{mdframed} % 影付き囲み環境のためのパッケージ
 \RequirePackage{type1cm} % 文字の大きさを自由に変えるためのパッケージ
 
 

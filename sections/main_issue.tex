@@ -10,11 +10,19 @@
 
 \section{決定性有限オートマトン（DFA）}
 
-\begin{framed}
-\noindent 状態集合 $Q$，アルファベット $\Sigma$，遷移関数 $\delta : Q \times \Sigma \rightarrow Q$，初期状態 $s \in Q$，受理（終）状態 $F \subseteq Q$ から定義される $(Q,\Sigma,\delta,s,F)$ を\textbf{決定性有限オートマトン（deterministic finite automaton: DFA）}と呼ぶ．
-\end{framed}
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=black,
+    backgroundcolor=white,
+    shadow=true,
+    shadowsize=4pt,
+    shadowcolor=black
+]
+\noindent 状態集合 $Q$，アルファベット $\Sigma$，遷移関数 $\delta : Q \times \Sigma \rightarrow Q$，初期状態 $s \in Q$，受理（終了）状態 $F \subseteq Q$ から定義される $(Q,\Sigma,\delta,s,F)$ を\textbf{決定性有限オートマトン（deterministic finite automaton: DFA）}と呼ぶ．
+\end{mdframed}
 
-$\Sigma$上の文字列 $x = x_0 x_1 \cdots x_{n-1}$ に対して，$p_0 = s$, $p_{i+1} = \delta(p_i,x_i)$ $(0 \leq i \leq n - 1)$，$p_n \in F$ であるような状態列 $p_0, p_1, \ldots, p_n$ が存在するとき，この DFA は文字列 $x$ を受理するという．DFA が受理するすべての文字列からなる集合（言語）を $L$ とするとき，この DFA は $L$ を\textbf{認識する}という．
+\ \\
+$\Sigma$上の文字列 $x = x_0 x_1 \cdots x_{n-1}$ に対して，$p_0 = s$, $p_{i+1} = \delta(p_i,x_i)$ $(0 \leq i \leq n - 1)$，$p_n \in F$ であるような状態列 $p_0, p_1, \ldots, p_n$ が存在するとき，この DFA は文字列 $x$ を\textbf{受理する}という．DFA が受理するすべての文字列からなる集合（言語）を $L$ とするとき，この DFA は $L$ を\textbf{認識する}という．
 
 \begin{tcolorbox}[
   enhanced,
@@ -38,7 +46,7 @@ $q_2$ & $q_2$ & $q_2$ \\
 \hspace{5mm} $\Leftrightarrow$
 \begin{minipage}{0.45\textwidth}
   \includegraphics{figures/dfa1.pdf}\\[2mm]
-  \small{正規表現 b*aa*b がつくる言語 \\= \{a と b での順に現れる文字列\} を認識}
+  \small{正規表現 \texttt{b*aa*b} がつくる言語 \\= \{\texttt{a} と \texttt{b} での順に現れる文字列\} を認識}
 \end{minipage}\\[-20pt]
 
 $s = q_0$\\
