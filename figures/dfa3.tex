@@ -25,11 +25,11 @@
 \node[state] (q1) at (1.5,0) {$q_1$};
 \node[state] (q2) at (3,0) {$q_2$};
 \path[->] 
-  (q0) edge[bend left] node[above] {$a$} (q1)
-  (q0) edge[bend right, below] node[below] {$b$} (q2)
-  (q1) edge[bend left] node[above] {$a$} (q2)
-  (q1) edge[bend left, above] node[above] {$b$} (q0);
+  (q0) edge[bend left=40] node[above] {$\mathtt{a}$} (q1)
+  (q0) edge[bend right=40] node[below] {$\mathtt{b}$} (q2)
+  (q1) edge[bend left=40] node[above] {$\mathtt{a}$} (q2)
+  (q1) edge[out=90, in=90, looseness=2] node[above] {$\mathtt{b}$} (q0);
 \path[->]
-  (q2) edge[loop above] node {$a,b$} ();
+  (q2) edge[loop above] node {$\mathtt{a,b}$} ();
 \end{tikzpicture}
 \end{document}

@@ -35,9 +35,9 @@ $\Sigma$上の文字列 $x = x_0 x_1 \cdots x_{n-1}$ に対して，$p_0 = s$, $
 \small
 \textbf{例1}\\
 $Q = \{q_0, q_1, q_2\}$\\
-$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+$\Sigma = \{\mathtt{a,b}\}$\\[-14pt]
 \begin{tabular}{c|cc}
-$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+$\delta$ & $\mathtt{a}$ & $\mathtt{b}$ \\
 \hline
 $q_0$ & $q_1$ & $q_0$ \\
 $q_1$ & $q_1$ & $q_2$ \\
@@ -46,7 +46,8 @@ $q_2$ & $q_2$ & $q_2$ \\
 \hspace{5mm} $\Leftrightarrow$
 \begin{minipage}{0.45\textwidth}
   \includegraphics{figures/dfa1.pdf}\\[2mm]
-  \small{正規表現 \texttt{b*aa*b} がつくる言語 \\= \{\texttt{a} と \texttt{b} での順に現れる文字列\} を認識}
+  \small{正規表現 \texttt{b*aa*b} が表す言語\\
+  $= \{\mathtt{a}\text{ と }\mathtt{b}\text{ がこの順に現れる文字列}\}$ を認識}
 \end{minipage}\\[-20pt]
 
 $s = q_0$\\
@@ -54,9 +55,9 @@ $F = \{q_2\}$
 
 \textbf{例2}\\
 $Q = \{q_0, q_1\}$\\
-$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+$\Sigma = \{\mathtt{a,b}\}$\\[-14pt]
 \begin{tabular}{c|cc}
-$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+$\delta$ & $\mathtt{a}$ & $\mathtt{b}$ \\
 \hline
 $q_0$ & $q_0$ & $q_1$ \\
 $q_1$ & $q_1$ & $q_1$ \\
@@ -73,9 +74,9 @@ $F = \{q_0\}$
 
 \textbf{例3}\\
 $Q = \{q_0, q_1, q_2\}$\\
-$\Sigma = \{\mathbf{a,b}\}$\\[-14pt]
+$\Sigma = \{\mathtt{a,b}\}$\\[-14pt]
 \begin{tabular}{c|cc}
-$\delta$ & $\mathbf{a}$ & $\mathbf{b}$ \\
+$\delta$ & $\mathtt{a}$ & $\mathtt{b}$ \\
 \hline
 $q_0$ & $q_1$ & $q_2$ \\
 $q_1$ & $q_2$ & $q_0$ \\

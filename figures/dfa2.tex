@@ -24,9 +24,9 @@
 \node[state,initial,accepting] (q0) at (0,0) {$q_0$};
 \node[state] (q1) at (1.5,0) {$q_1$};
 \path[->] 
-  (q0) edge[loop above] node {$a$} ()
-  (q0) edge[bend left] node[above] {$b$} (q1);
+  (q0) edge[loop above] node {$\mathtt{a}$} ()
+  (q0) edge[bend left] node[above] {$\mathtt{b}$} (q1);
 \path[->]
-  (q1) edge[loop above] node {$a,b$} ();
+  (q1) edge[loop above] node {$\mathtt{a,b}$} ();
 \end{tikzpicture}
 \end{document}
